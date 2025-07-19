@@ -43,9 +43,9 @@ std::string getValue(std::fstream& file, FilePosition pos) {
 }
 
 
-int main(int argc, char* argv) {
+int main(int argc, char* argv[]) {
 
-	std::string filepath = &argv[2];
+	std::string filepath = argv[1];
 
 	std::fstream file;
 	file.open(filepath);
@@ -74,6 +74,9 @@ int main(int argc, char* argv) {
 
 		float batteryWear = 100 - chargeCapacity / designCapacity * 100;
 
-		std::cout << "BATTERY WEAR:\t" << batteryWear << '\n';
+		std::cout << "BATTERY WEAR:\t\t" << batteryWear << '\n';
+	}
+	else {
+		std::cout << "couldn't open file " << filepath << '\n';
 	}
 }
